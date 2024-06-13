@@ -7,6 +7,15 @@
         public string Email { get; set; } = null!;
         public string Senha { get; set; } = null!;
 
-       
+        public Usuario()
+        {
+        }
+
+        public Usuario(string nome, string email, string senha)
+        {
+            Nome = nome;
+            Email = email;
+            Senha = BCrypt.Net.BCrypt.HashPassword(senha);
+        }
     }
 }

@@ -7,13 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{09AFC2D8-BEA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortfolio.Domain", "src\InvestmentPortfolio.Domain\InvestmentPortfolio.Domain.csproj", "{A790283A-2E51-4779-8C2B-850B3BC64340}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortfolio.Infraestructure", "src\InvestmentPortfolio.Infraestructure\InvestmentPortfolio.Infraestructure.csproj", "{71A92900-B256-4FF5-ACCB-DC04A9849A08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortfolio.Infraestructure", "src\InvestmentPortfolio.Infraestructure\InvestmentPortfolio.Infraestructure.csproj", "{71A92900-B256-4FF5-ACCB-DC04A9849A08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortfolio.Application", "src\InvestmentPortfolio.Application\InvestmentPortfolio.Application.csproj", "{751F746A-5122-4832-B2DB-E8EC083A327C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortfolio.Application", "src\InvestmentPortfolio.Application\InvestmentPortfolio.Application.csproj", "{751F746A-5122-4832-B2DB-E8EC083A327C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortfolio.Api", "src\InvestmentPortfolio.Api\InvestmentPortfolio.Api.csproj", "{FABA8339-007F-4071-86A5-512A654B668C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortfolio.Api", "src\InvestmentPortfolio.Api\InvestmentPortfolio.Api.csproj", "{FABA8339-007F-4071-86A5-512A654B668C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortfolio.Web", "src\InvestmentPortfolio.Web\InvestmentPortfolio.Web.csproj", "{151BD025-A194-4226-9638-DE7B05204ADB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortfolio.Web", "src\InvestmentPortfolio.Web\InvestmentPortfolio.Web.csproj", "{151BD025-A194-4226-9638-DE7B05204ADB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9830C536-4570-48F5-93FF-22776E406A39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortfolio.Tests", "Tests\InvestmentPortfolio.Tests\InvestmentPortfolio.Tests.csproj", "{CA9FE9A3-BBB1-4DD8-8D6C-7B13AE30D0EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,10 @@ Global
 		{151BD025-A194-4226-9638-DE7B05204ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{151BD025-A194-4226-9638-DE7B05204ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{151BD025-A194-4226-9638-DE7B05204ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9FE9A3-BBB1-4DD8-8D6C-7B13AE30D0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9FE9A3-BBB1-4DD8-8D6C-7B13AE30D0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9FE9A3-BBB1-4DD8-8D6C-7B13AE30D0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9FE9A3-BBB1-4DD8-8D6C-7B13AE30D0EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +59,7 @@ Global
 		{751F746A-5122-4832-B2DB-E8EC083A327C} = {09AFC2D8-BEAC-4FD3-8455-CB53B19E92D7}
 		{FABA8339-007F-4071-86A5-512A654B668C} = {09AFC2D8-BEAC-4FD3-8455-CB53B19E92D7}
 		{151BD025-A194-4226-9638-DE7B05204ADB} = {09AFC2D8-BEAC-4FD3-8455-CB53B19E92D7}
+		{CA9FE9A3-BBB1-4DD8-8D6C-7B13AE30D0EC} = {9830C536-4570-48F5-93FF-22776E406A39}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C61E6EF-3331-4082-A190-D2FFF223ED6C}

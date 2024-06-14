@@ -13,6 +13,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<CadastrarUsuarioUseCase>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IAtivoRepository, AtivoRepository>();
+builder.Services.AddScoped<IPortfolioRepository, PortfolioRepository>();
+builder.Services.AddScoped<ITransacaoRepository, TransacaoRepository>();
+
 
 var app = builder.Build();
 

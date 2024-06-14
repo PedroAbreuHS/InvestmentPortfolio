@@ -9,5 +9,16 @@ namespace InvestmentPortfolio.Domain.Entities
 
         public TipoAtivo TipoAtivo { get; set; }
         public Codigo Codigo { get; set; }
+
+        public Ativo()
+        {
+        }
+
+        public Ativo(string nome, TipoAtivo tipoAtivo, Codigo codigo)
+        {
+            Nome = nome;
+            TipoAtivo = tipoAtivo;
+            Codigo = codigo;
+        }
     }
 }

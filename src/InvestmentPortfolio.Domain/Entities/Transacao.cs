@@ -18,5 +18,21 @@ namespace InvestmentPortfolio.Domain.Entities
         public decimal Preco { get; set; }
         public DateTime DataTransacao { get; set; } = DateTime.Now;
 
+        public Transacao()
+        {
+        }
+
+        public Transacao(string nome, Guid portfolioId, Portfolio portfolio, Guid ativoId, Ativo ativo, TipoTransacao tipoTransacao, int quantidade, decimal preco, DateTime dataTransacao)
+        {
+            Nome = nome;
+            PortfolioId = portfolioId;
+            Portfolio = portfolio;
+            AtivoId = ativoId;
+            Ativo = ativo;
+            TipoTransacao = tipoTransacao;
+            Quantidade = quantidade;
+            Preco = preco;
+            DataTransacao = dataTransacao;
+        }
     }
 }

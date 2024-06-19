@@ -1,12 +1,11 @@
-﻿
-using InvestmentPortfolio.Application.DTOs;
+﻿using InvestmentPortfolio.Application.DTOs;
 using InvestmentPortfolio.Domain.Entities;
 using InvestmentPortfolio.Domain.Repositories;
 using System.ComponentModel.DataAnnotations;
 
-namespace InvestmentPortfolio.Application.UseCases
+namespace InvestmentPortfolio.Application.UseCases.UsuarioUseCases
 {
-    public class CadastrarUsuarioUseCase 
+    public class CadastrarUsuarioUseCase
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
@@ -15,7 +14,7 @@ namespace InvestmentPortfolio.Application.UseCases
             _usuarioRepository = usuarioRepository;
         }
 
-        public void Execute(UsuarioDto usuarioDto) 
+        public void Execute(UsuarioDto usuarioDto)
         {
             Validation(usuarioDto);
 

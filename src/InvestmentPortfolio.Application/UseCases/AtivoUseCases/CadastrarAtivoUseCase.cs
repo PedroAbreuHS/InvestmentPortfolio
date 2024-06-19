@@ -2,7 +2,6 @@
 using InvestmentPortfolio.Application.DTOs;
 using InvestmentPortfolio.Domain.Entities;
 using InvestmentPortfolio.Domain.Repositories;
-using System.ComponentModel.DataAnnotations;
 
 namespace InvestmentPortfolio.Application.UseCases
 {

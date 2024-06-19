@@ -1,6 +1,9 @@
-using InvestmentPortfolio.Application.UseCases;
+using InvestmentPortfolio.Application.UseCases.UsuarioUseCases;
 using InvestmentPortfolio.Domain.Repositories;
+using InvestmentPortfolio.Infraestructure.Data;
 using InvestmentPortfolio.Infraestructure.Repositories;
+using InvestmentPortfolio.IoC;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,12 +14,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<CadastrarUsuarioUseCase>();
-builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-builder.Services.AddScoped<IAtivoRepository, AtivoRepository>();
-builder.Services.AddScoped<IPortfolioRepository, PortfolioRepository>();
-builder.Services.AddScoped<ITransacaoRepository, TransacaoRepository>();
+NativeInjector.RegisterServices(builder.Services);
 
+builder.Services.AddDbContext<AppDbContext>(opts =>
+{
+    opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 var app = builder.Build();
 

@@ -1,5 +1,5 @@
 ﻿using InvestmentPortfolio.Application.DTOs;
-using InvestmentPortfolio.Application.UseCases;
+using InvestmentPortfolio.Application.UseCases.PortfolioUseCases;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortfolio.Api.Controllers

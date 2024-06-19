@@ -1,9 +1,8 @@
-﻿
-using InvestmentPortfolio.Application.DTOs;
+﻿using InvestmentPortfolio.Application.DTOs;
 using InvestmentPortfolio.Domain.Entities;
 using InvestmentPortfolio.Domain.Repositories;
 
-namespace InvestmentPortfolio.Application.UseCases
+namespace InvestmentPortfolio.Application.UseCases.PortfolioUseCases
 {
     public class CadastrarPortfolioUseCase
     {

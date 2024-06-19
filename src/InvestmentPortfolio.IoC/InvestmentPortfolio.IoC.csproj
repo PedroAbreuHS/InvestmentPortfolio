@@ -1,20 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\InvestmentPortfolio.Application\InvestmentPortfolio.Application.csproj" />
     <ProjectReference Include="..\InvestmentPortfolio.Infraestructure\InvestmentPortfolio.Infraestructure.csproj" />
-    <ProjectReference Include="..\InvestmentPortfolio.IoC\InvestmentPortfolio.IoC.csproj" />
-    <ProjectReference Include="..\InvestmentPortfolio.Web\InvestmentPortfolio.Web.csproj" />
   </ItemGroup>
 
 </Project>

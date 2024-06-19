@@ -1,5 +1,6 @@
 ﻿
 using InvestmentPortfolio.Domain.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InvestmentPortfolio.Domain.Entities
 {
@@ -15,6 +16,8 @@ namespace InvestmentPortfolio.Domain.Entities
 
         public TipoTransacao TipoTransacao { get; set; }
         public int Quantidade { get; set; }
+
+        [Column(TypeName = "decimal(10,2)")]
         public decimal Preco { get; set; }
         public DateTime DataTransacao { get; set; } = DateTime.Now;
 

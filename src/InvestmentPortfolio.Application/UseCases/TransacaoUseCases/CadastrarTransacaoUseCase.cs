@@ -1,9 +1,8 @@
-﻿
-using InvestmentPortfolio.Application.DTOs;
+﻿using InvestmentPortfolio.Application.DTOs;
 using InvestmentPortfolio.Domain.Entities;
 using InvestmentPortfolio.Domain.Repositories;
 
-namespace InvestmentPortfolio.Application.UseCases
+namespace InvestmentPortfolio.Application.UseCases.TransacaoUseCase
 {
     public class CadastrarTransacaoUseCase
     {
@@ -16,14 +15,14 @@ namespace InvestmentPortfolio.Application.UseCases
 
         public void Execute(TransacaoDto transacaoDto)
         {
-            Transacao transacao = new(transacaoDto.Nome, 
-                                      transacaoDto.PortfolioId, 
+            Transacao transacao = new(transacaoDto.Nome,
+                                      transacaoDto.PortfolioId,
                                       transacaoDto.Portfolio,
                                       transacaoDto.AtivoId,
-                                      transacaoDto.Ativo, 
-                                      transacaoDto.TipoTransacao, 
-                                      transacaoDto.Quantidade, 
-                                      transacaoDto.Preco, 
+                                      transacaoDto.Ativo,
+                                      transacaoDto.TipoTransacao,
+                                      transacaoDto.Quantidade,
+                                      transacaoDto.Preco,
                                       transacaoDto.DataTransacao);
 
             _transacaoRepository.Adicionar(transacao);

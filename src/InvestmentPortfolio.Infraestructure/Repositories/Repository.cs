@@ -1,33 +1,50 @@
 ﻿using InvestmentPortfolio.Domain.Entities;
 using InvestmentPortfolio.Domain.Repositories;
+using InvestmentPortfolio.Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace InvestmentPortfolio.Infraestructure.Repositories
 {
     public class Repository<T> : IRepository<T> where T : EntityBase
     {
-        public Task<T> Adicionar(T entity)
+        protected AppDbContext _context;
+        protected DbSet<T> _dbSet;
+
+        public Repository(AppDbContext Context)
         {
-            throw new NotImplementedException();
+            _context = Context;
+            _dbSet = _context.Set<T>();
         }
 
-        public Task<T> Atualizar(Guid id, T entity)
+        public async Task Adicionar(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Add(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<T> ObterPorId(Guid id)
+        public async Task Atualizar(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Update(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<T> ObterTodos()
+        public async Task<T?> ObterPorId(Guid id)
         {
-            throw new NotImplementedException();
+            return await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public Task<T> Remover(Guid id)
+        public async Task<List<T>> ObterTodos()
         {
-            throw new NotImplementedException();
+            return await _dbSet.ToListAsync();
+        }
+
+        public async Task Remover(Guid id)
+        {
+            var entity = await ObterPorId(id);
+
+            if (entity != null) _dbSet.Remove(entity);
+            
+            await _context.SaveChangesAsync();
         }
     }
 }

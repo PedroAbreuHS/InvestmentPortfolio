@@ -15,7 +15,7 @@
         {
             Nome = nome;
             Email = email;
-            Senha = BCrypt.Net.BCrypt.HashPassword(senha);
+            Senha = senha;
         }
     }
 }

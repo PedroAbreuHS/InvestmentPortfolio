@@ -14,22 +14,24 @@ namespace InvestmentPortfolio.Application.UseCases.UsuarioUseCases
             _usuarioRepository = usuarioRepository;
         }
 
-        public void Execute(UsuarioDto usuarioDto)
+        public async Task Execute(UsuarioDto usuarioDto)
         {
             Validation(usuarioDto);
 
             var usuario = new Usuario(usuarioDto.Nome, usuarioDto.Email, usuarioDto.Senha);
 
-            _usuarioRepository.Adicionar(usuario);
+            await _usuarioRepository.Adicionar(usuario);
         }
 
         private void Validation(UsuarioDto usuarioDto)
         {
-            if (usuarioDto.Senha != usuarioDto.ConfirmarSenha) throw new ArgumentException("Senha confirmação diferente da senha informada");
+            if (usuarioDto.Senha != usuarioDto.ConfirmarSenha) 
+                throw new ArgumentException("Senha confirmação diferente da senha informada");
 
             var validarEmail = new EmailAddressAttribute();
 
-            if (!validarEmail.IsValid(usuarioDto.Email)) throw new ArgumentException("Email inválido!");
+            if (!validarEmail.IsValid(usuarioDto.Email)) 
+                throw new ArgumentException("Email inválido!");
         }
     }
 }

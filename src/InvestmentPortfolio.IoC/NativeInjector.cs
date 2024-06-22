@@ -15,13 +15,19 @@ namespace InvestmentPortfolio.IoC
         {
             #region Services
             service.AddScoped<CadastrarUsuarioUseCase>();
+            service.AddScoped<ObterTodosUsuariosUseCase>();
+            service.AddScoped<ObterUsuarioPorIdUseCase>();
+            service.AddScoped<AtualizarUsuarioUseCase>();
+            service.AddScoped<RemoverUsuarioUseCase>();
+
             service.AddScoped<ObterTodosAtivosUseCase>();
             service.AddScoped<ObterAtivoPorIdUseCase>();
             service.AddScoped<AtualizarAtivoUseCase>();
             service.AddScoped<RemoverAtivoUseCase>();
+            service.AddScoped<CadastrarAtivoUseCase>();
+
             service.AddScoped<CadastrarPortfolioUseCase>();
             service.AddScoped<CadastrarTransacaoUseCase>();
-            service.AddScoped<CadastrarAtivoUseCase>();
             #endregion
 
             #region Repositories

@@ -1,7 +1,6 @@
 ﻿using InvestmentPortfolio.Application.DTOs;
 using InvestmentPortfolio.Application.UseCases;
 using InvestmentPortfolio.Application.UseCases.AtivoUseCases;
-using InvestmentPortfolio.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortfolio.Api.Controllers

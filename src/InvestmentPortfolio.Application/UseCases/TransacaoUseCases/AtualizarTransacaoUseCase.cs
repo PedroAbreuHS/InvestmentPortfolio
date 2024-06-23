@@ -14,7 +14,7 @@ namespace InvestmentPortfolio.Application.UseCases.TransacaoUseCases
             _transacaoRepository = transacaoRepository;
         }
 
-        public async Task<Transacao?> Execute(Guid id, TransacaoDto transacaoDto)
+        public async Task Execute(Guid id, TransacaoDto transacaoDto)
         {
             Transacao? transacao = await _transacaoRepository.ObterPorId(id);
 

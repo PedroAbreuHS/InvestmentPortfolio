@@ -16,7 +16,7 @@ namespace InvestmentPortfolio.Infraestructure.Repositories
             _dbSet = _context.Set<T>();
         }
 
-        public async Task Atualizar(T entity)
+        public async Task Adicionar(T entity)
         {
             _dbSet.Add(entity);
             await _context.SaveChangesAsync();

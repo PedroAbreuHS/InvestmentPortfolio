@@ -2,7 +2,6 @@
 using InvestmentPortfolio.Application.DTOs;
 using InvestmentPortfolio.Domain.Entities;
 using InvestmentPortfolio.Domain.Repositories;
-using System.ComponentModel.DataAnnotations;
 
 namespace InvestmentPortfolio.Application.UseCases.UsuarioUseCases
 {
@@ -17,33 +16,24 @@ namespace InvestmentPortfolio.Application.UseCases.UsuarioUseCases
 
         public async Task Execute(Guid id, UsuarioDto usuarioDto)
         {
-            Validation(usuarioDto);
-
+            // Obter o usuário pelo id
             Usuario? usuario = await _usuarioRepository.ObterPorId(id);
 
             if (usuario == null)
                 throw new ArgumentException("Não há registro com o id informado.");
 
+            // Validar confirmação de senha apenas se uma nova senha for fornecida
             if (!string.IsNullOrWhiteSpace(usuarioDto.Senha))
             {
-                if (usuarioDto.Senha != usuarioDto.ConfirmarSenha)
-                    throw new ArgumentException("Senha confirmação diferente da senha informada");
-
-                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuarioDto.Senha);
+                usuario.ValidarSenhaConfirmacao(usuarioDto.Senha, usuarioDto.ConfirmarSenha);
             }
 
-            usuario.Nome = usuarioDto.Nome;
-            usuario.Email = usuarioDto.Email;
+            // Atualizar informações do usuário
+            usuario.AtualizarInformacoes(usuarioDto.Nome, usuarioDto.Email, usuarioDto.Senha);
 
+            // Chamar o repositório para atualizar o usuário
             await _usuarioRepository.Atualizar(usuario);
         }
-
-        private void Validation(UsuarioDto usuarioDto)
-        {
-            var validarEmail = new EmailAddressAttribute();
-
-            if (!validarEmail.IsValid(usuarioDto.Email))
-                throw new ArgumentException("Email inválido!");
-        }
     }
+
 }

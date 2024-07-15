@@ -1,4 +1,7 @@
-﻿namespace InvestmentPortfolio.Domain.Entities
+﻿using FluentValidation.Results;
+using InvestmentPortfolio.Domain.Validations;
+
+namespace InvestmentPortfolio.Domain.Entities
 {
     public class Usuario : EntityBase
     {
@@ -16,6 +19,12 @@
             Nome = nome;
             Email = email;
             Senha = BCrypt.Net.BCrypt.HashPassword(senha);
+        }
+
+        public override ValidationResult IsValid()
+        {
+            ValidationResult = new UsuarioValidations().Validate(this);
+            return ValidationResult;
         }
     }
 }

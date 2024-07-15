@@ -1,5 +1,7 @@
 ﻿
+using FluentValidation.Results;
 using InvestmentPortfolio.Domain.Enums;
+using InvestmentPortfolio.Domain.Validations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InvestmentPortfolio.Domain.Entities
@@ -36,6 +38,12 @@ namespace InvestmentPortfolio.Domain.Entities
             Quantidade = quantidade;
             Preco = preco;
             DataTransacao = dataTransacao;
+        }
+
+        public override ValidationResult IsValid()
+        {
+            ValidationResult = new TransacaoValidations().Validate(this);
+            return ValidationResult;
         }
     }
 }

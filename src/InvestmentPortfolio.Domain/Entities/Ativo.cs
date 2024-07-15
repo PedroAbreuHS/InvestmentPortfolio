@@ -1,5 +1,7 @@
 ﻿
+using FluentValidation.Results;
 using InvestmentPortfolio.Domain.Enums;
+using InvestmentPortfolio.Domain.Validations;
 
 namespace InvestmentPortfolio.Domain.Entities
 {
@@ -19,6 +21,12 @@ namespace InvestmentPortfolio.Domain.Entities
             Nome = nome;
             TipoAtivo = tipoAtivo;
             Codigo = codigo;
+        }
+
+        public override ValidationResult IsValid()
+        {
+            ValidationResult = new AtivoValidations().Validate(this);
+            return ValidationResult;
         }
     }
 }

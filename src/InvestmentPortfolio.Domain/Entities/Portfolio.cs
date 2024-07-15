@@ -1,4 +1,7 @@
 ﻿
+using FluentValidation.Results;
+using InvestmentPortfolio.Domain.Validations;
+
 namespace InvestmentPortfolio.Domain.Entities
 {
     public class Portfolio : EntityBase
@@ -21,6 +24,12 @@ namespace InvestmentPortfolio.Domain.Entities
             Descricao = descricao;
             UsuarioId = usuarioId;
             Usuario = usuario;
+        }
+
+        public override ValidationResult IsValid()
+        {
+            ValidationResult = new PortfolioValidations().Validate(this);
+            return ValidationResult;
         }
     }
 }

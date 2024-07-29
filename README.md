@@ -8,7 +8,9 @@ O desafio consiste em criar uma plataforma que permita que usuários gerenciem s
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## 📱 Descrição do Projeto:
-O tema do projeto é: `Sistema de Investimentos - InvestimentPortfolio` xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+O tema do projeto é: `Sistema de Investimentos - InvestimentPortfolio` 
+É disponibilizado uma área inicial de login com a possibilidade de cadastrar novos usuários para a plataforma.<br>
+A plataforma possui como objetivo possibilitar o gerenciamento de investimentos por usuários.
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -41,32 +43,22 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-## ⚙️ Desenho da Arquitetura:
-Inserir aqui.
-__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-
 ## ⚙️ Levantamento de Requisitos e Critérios de Aceite:
 
 ### Funcionalidade Esperada
-A parte funcional deve registrar o atendimento de uma chamada de call center, registrar o motivo da ligação (pré cadastrado), telefone do cliente, primeiro nome, observação (para inserir alguma informação relevante do atendimento), Status (pré cadastrado) e Substatus (pré cadastrado).
+A parte funcional deve-se gerenciar um usuário, ativo, transações e os portfólios.
 
-`Motivo:`
-- Perda do cartão;
-- Desbloqueio do cartão;
-- Negociação;
-- Informação da conta.
+`Usuários:`
+- CRUD completo;
 
-`Status:`
-- **Finalizado:** quando o motivo da ligação do cliente foi resolvido no primeiro contato;
-- **Pendente:** quando por algum motivo não pode ser resolvido no primeiro atendimento.
+`Ativos:`
+- CRUD completo.
 
-`Substatus:`
-- **Finalizado:** Cartão desbloqueado com sucesso, Duvidas referente a conta;
-- **Pendente:** Cliente não conseguiu confirmar os dados, Negociação pendente de aceite.
+`Portfolios:`
+- CRUD completo.
 
-`Restrições tecnica:`
-- Não permitir o registro quando não for preenchido todos os campos, com exeção da observação;
-- Todos os status devem conter um substatus.
+`Transações:`
+- CRUD completo.
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## 🧪 Desenvolvimento (Build e Execução do Projeto):
@@ -88,7 +80,7 @@ O padrão utilizado é pensado nos testes unitários, testes de integração e r
 
 ### Build e Execução do Projeto:
 Para executar esses projetos você precisa seguir as etapas abaixo:
-- Acessar o repositório do projeto através do link: https://github.com/daviEmanuelNogueira/Crm;
+- Acessar o repositório do projeto através do link: https://github.com/PedroAbreuHS/InvestimentPortfolio;
 - Baixar o zip do projeto ou fazer um fork do mesmo;
 - Abrir o projeto, preferencialmente, na IDE Visual Studio considerando que facilitará para a execução;
 - Configurar a api como startup project;
@@ -99,4 +91,4 @@ Para executar esses projetos você precisa seguir as etapas abaixo:
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## ⚙️ Apresentação YouTube:
-https://youtu.be/0MSw0jt6Y2c
+

@@ -85,7 +85,7 @@ Para executar esses projetos você precisa seguir as etapas abaixo:
 - Abrir o projeto, preferencialmente, na IDE Visual Studio considerando que facilitará para a execução;
 - Configurar a api como startup project;
 - Rodar o comando update-database no package manage console apontando para o projeto de infraestrutura;
-- Clicar na opção, configurar startup projects, selecionar multiple startup projects e colocar o projeto Crm.WEB quanto o projeto Crm.API como start;
+- Clicar na opção, configurar startup projects, selecionar multiple startup projects e colocar o projeto InvestmentPortfolio.WEB quanto o projeto InvestmentPortfolio.API como start;
 - Após iniciar o navegador será iniciado a interação com o sistema, possibilitando o registro de um pré cadastro;
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________

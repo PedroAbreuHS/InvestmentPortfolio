@@ -10,6 +10,5 @@ namespace InvestmentPortfolio.Application.DTOs
         public string Senha { get; set; } = null!;
 
         public string ConfirmarSenha { get; set; } = null!;
-
     }
 }

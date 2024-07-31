@@ -22,7 +22,9 @@ namespace InvestmentPortfolio.Application.UseCases.PortfolioUseCases
 
             portfolio.Id = id;
             portfolio.Nome = portfolioDto.Nome;
-            portfolio.Usuario = portfolioDto.Usuario;
+            portfolio.Usuario =  new Usuario(portfolioDto.Usuario.Nome, 
+                                portfolioDto.Usuario.Email, 
+                                portfolioDto.Usuario.Senha) ;
             portfolio.Descricao = portfolioDto.Descricao;
             portfolio.UsuarioId = portfolioDto.UsuarioId;
 

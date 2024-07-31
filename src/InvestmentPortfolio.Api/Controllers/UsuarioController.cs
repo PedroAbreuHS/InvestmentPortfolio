@@ -2,6 +2,7 @@
 using InvestmentPortfolio.Application.DTOs;
 using InvestmentPortfolio.Application.UseCases.AtivoUseCases;
 using InvestmentPortfolio.Application.UseCases.UsuarioUseCases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortfolio.Api.Controllers
@@ -21,19 +22,15 @@ namespace InvestmentPortfolio.Api.Controllers
         public IActionResult Adicionar([FromBody] UsuarioDto usuarioDto)
         {
             try
-            {
-                _cadastrarUsuarioUseCase.Execute(usuarioDto);
-
-                return Ok();
+            {  
+                return Ok(_cadastrarUsuarioUseCase.Execute(usuarioDto));
             }
             catch (ArgumentException e)
             {
-
                 return BadRequest(new { e.Message });
             }
             catch (Exception e)
             {
-
                 return StatusCode(500, e.Message);
             }
 
@@ -109,5 +106,23 @@ namespace InvestmentPortfolio.Api.Controllers
                 return StatusCode(500, new { ErrorMessage = "Internal Server Error" });
             }
         }
+
+        [HttpPost("authenticate"), AllowAnonymous]
+        public async Task<IActionResult> Authenticate([FromBody] UsuarioRequestAutenticaoDto usuarioDto, [FromServices] AutenticarUsuarioUseCase autenticarUsuarioUseCase)
+        {
+            try
+            {
+                return Ok(await autenticarUsuarioUseCase.Execute(usuarioDto));
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest(new { e.Message });
+            }
+            catch
+            {
+                return StatusCode(500, new { ErrorMessage = "Internal Server Error" });
+            }
+        }       
+
     }
 }

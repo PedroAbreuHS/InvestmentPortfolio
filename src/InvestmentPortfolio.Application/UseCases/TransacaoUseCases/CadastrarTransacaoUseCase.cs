@@ -15,15 +15,22 @@ namespace InvestmentPortfolio.Application.UseCases.TransacaoUseCase
 
         public void Execute(TransacaoDto transacaoDto)
         {
-            Transacao transacao = new(transacaoDto.Nome,
-                                      transacaoDto.PortfolioId,
-                                      transacaoDto.Portfolio,
-                                      transacaoDto.AtivoId,
-                                      transacaoDto.Ativo,
-                                      transacaoDto.TipoTransacao,
-                                      transacaoDto.Quantidade,
-                                      transacaoDto.Preco,
-                                      transacaoDto.DataTransacao);
+            Usuario usuario = new Usuario();
+            Ativo ativo = new Ativo();
+            Transacao transacao = new Transacao();
+
+            transacao.Nome = transacaoDto.Nome;
+            transacao.PortfolioId = transacaoDto.PortfolioId;
+            transacao.Portfolio = new Portfolio(
+                                        transacaoDto.Portfolio.Nome,
+                                        transacaoDto.Portfolio.Descricao,
+                                        usuario.Id,
+                                        usuario);
+            transacao.AtivoId = ativo.Id;
+            transacao.Ativo = ativo;
+            transacao.TipoTransacao = transacaoDto.TipoTransacao;
+            transacao.Quantidade = transacaoDto.Quantidade;
+            transacao.Preco = transacaoDto.Preco;
 
             _transacaoRepository.Adicionar(transacao);
         }

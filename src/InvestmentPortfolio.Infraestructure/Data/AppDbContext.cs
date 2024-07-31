@@ -2,6 +2,7 @@
 using InvestmentPortfolio.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace InvestmentPortfolio.Infraestructure.Data
 {

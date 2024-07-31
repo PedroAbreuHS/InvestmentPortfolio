@@ -11,6 +11,6 @@ namespace InvestmentPortfolio.Application.DTOs
 
         public required Guid UsuarioId { get; set; }
 
-        public required Usuario Usuario { get; set; } = null!;
+        public required UsuarioDto Usuario { get; set; } = null!;
     }
 }

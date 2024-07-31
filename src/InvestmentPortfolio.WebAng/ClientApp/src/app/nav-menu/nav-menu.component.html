@@ -1,0 +1,45 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Portifólio de Investimentos</a>
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              aria-label="Toggle navigation"
+              [attr.aria-expanded]="isExpanded"
+              (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row"
+           [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow mr-auto">
+          <li class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          </li>
+          <li *ngIf="!isAuthenticated" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/users']">Usuários</a>
+          </li>
+          <li *ngIf="isAuthenticated" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/portfolio']">Portfolio</a>
+          </li>
+          <li *ngIf="isAuthenticated" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/transacoes']">Transações</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li *ngIf="isAuthenticated" class="nav-item">
+            <a class="nav-link login-user">{{userLogged?.nome}}</a>
+          </li>
+          <li *ngIf="isAuthenticated" class="nav-item">
+            <button type="reset" class="btn btn-primary" (click)="logout()">Sair</button>
+          </li>
+        </ul>  
+      </div>
+    </div>
+  </nav>
+</header>

@@ -20,14 +20,11 @@ namespace InvestmentPortfolio.Api.Controllers
         public IActionResult Adicionar(PortfolioDto portfolioDto)
         {
             try
-            {
-                _cadastrarPortfolioUseCase.Execute(portfolioDto);
-
-                return Ok();
+            {                
+                return Ok(_cadastrarPortfolioUseCase.Execute(portfolioDto));
             }
             catch (ArgumentException e)
             {
-
                 return BadRequest(new { e.Message });
             }
             catch (Exception e)

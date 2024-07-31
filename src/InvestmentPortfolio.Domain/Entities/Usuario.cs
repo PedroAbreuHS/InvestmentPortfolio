@@ -1,5 +1,7 @@
 ﻿using FluentValidation.Results;
 using InvestmentPortfolio.Domain.Validations;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace InvestmentPortfolio.Domain.Entities
 {
@@ -18,13 +20,28 @@ namespace InvestmentPortfolio.Domain.Entities
         {
             Nome = nome;
             Email = email;
-            Senha = BCrypt.Net.BCrypt.HashPassword(senha);
+            Senha = EncryptPassword(senha);
         }
 
         public override ValidationResult IsValid()
         {
             ValidationResult = new UsuarioValidations().Validate(this);
             return ValidationResult;
+        }
+
+        private string EncryptPassword(string password)
+        {
+            HashAlgorithm sha = new SHA1CryptoServiceProvider();
+
+            byte[] encryptedPassword = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (var caracter in encryptedPassword)
+            {
+                stringBuilder.Append(caracter.ToString("X2"));
+            }
+
+            return stringBuilder.ToString();
         }
     }
 }

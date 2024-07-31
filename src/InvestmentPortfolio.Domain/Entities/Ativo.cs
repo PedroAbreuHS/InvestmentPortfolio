@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using InvestmentPortfolio.Domain.Enums;
 using InvestmentPortfolio.Domain.Validations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InvestmentPortfolio.Domain.Entities
 {

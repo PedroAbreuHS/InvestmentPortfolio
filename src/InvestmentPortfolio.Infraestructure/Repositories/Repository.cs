@@ -2,6 +2,8 @@
 using InvestmentPortfolio.Domain.Repositories;
 using InvestmentPortfolio.Infraestructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace InvestmentPortfolio.Infraestructure.Repositories
 {
@@ -10,6 +12,7 @@ namespace InvestmentPortfolio.Infraestructure.Repositories
         protected AppDbContext _context;
         protected DbSet<T> _dbSet;
 
+        #region Metodos CRUD
         public Repository(AppDbContext Context)
         {
             _context = Context;
@@ -46,5 +49,85 @@ namespace InvestmentPortfolio.Infraestructure.Repositories
             
             await _context.SaveChangesAsync();
         }
+        #endregion
+
+        #region 'Methods: Search'
+
+        public T Find(params object[] Keys)
+        {
+            try
+            {
+                return _dbSet.Find(Keys);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public T Find(Expression<Func<T, bool>> where)
+        {
+            try
+            {
+                return _dbSet.AsNoTracking().FirstOrDefault(where);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public T Find(Expression<Func<T, bool>> predicate, Func<IQueryable<T>, object> includes)
+        {
+            try
+            {
+                IQueryable<T> _query = _dbSet;
+
+                if (includes != null)
+                    _query = includes(_query) as IQueryable<T>;
+
+                return _query.SingleOrDefault(predicate);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IQueryable<T> Query(Expression<Func<T, bool>> where)
+        {
+            try
+            {
+                return _dbSet.Where(where);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        //Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include
+        public IQueryable<T> Query(Expression<Func< T, bool>> predicate, Func<IQueryable<T>, object> includes)
+        {
+            try
+            {
+                IQueryable<T> _query = _dbSet;
+
+                if (includes != null)
+                    _query = includes(_query) as IQueryable<T>;
+
+                return _query.Where(predicate).AsQueryable();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

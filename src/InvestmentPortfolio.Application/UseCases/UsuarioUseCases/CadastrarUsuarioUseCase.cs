@@ -14,13 +14,15 @@ namespace InvestmentPortfolio.Application.UseCases.UsuarioUseCases
             _usuarioRepository = usuarioRepository;
         }
 
-        public void Execute(UsuarioDto usuarioDto)
+        public bool Execute(UsuarioDto usuarioDto)
         {
             Validation(usuarioDto);
 
             var usuario = new Usuario(usuarioDto.Nome, usuarioDto.Email, usuarioDto.Senha);
 
             _usuarioRepository.Adicionar(usuario);
+
+            return true;
         }
 
         private void Validation(UsuarioDto usuarioDto)

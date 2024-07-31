@@ -13,11 +13,20 @@ namespace InvestmentPortfolio.Application.UseCases.PortfolioUseCases
             _portfolioRepository = portfolioRepository;
         }
 
-        public void Execute(PortfolioDto portfolioDto)
+        public bool Execute(PortfolioDto portfolioDto)
         {
-            Portfolio portfolio = new(portfolioDto.Nome, portfolioDto.Descricao, portfolioDto.UsuarioId, portfolioDto.Usuario);
+            Portfolio portfolio = new Portfolio (
+                portfolioDto.Nome, 
+                portfolioDto.Descricao, 
+                portfolioDto.UsuarioId,
+                new Usuario(
+                    portfolioDto.Usuario.Nome,
+                    portfolioDto.Usuario.Email,
+                    portfolioDto.Usuario.Senha
+                ));
 
             _portfolioRepository.Adicionar(portfolio);
+            return true;
         }
     }
 }

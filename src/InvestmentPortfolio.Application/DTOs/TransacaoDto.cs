@@ -9,10 +9,10 @@ namespace InvestmentPortfolio.Application.DTOs
         public required string Nome { get; set; } = null!;
 
         public required Guid PortfolioId { get; set; }
-        public required Portfolio Portfolio { get; set; } = null!;
+        public required PortfolioDto Portfolio { get; set; } = null!;
 
         public required Guid AtivoId { get; set; }
-        public required Ativo Ativo { get; set; } = null!;
+        public required AtivoDto Ativo { get; set; } = null!;
 
         public required TipoTransacao TipoTransacao { get; set; }
         public required int Quantidade { get; set; }

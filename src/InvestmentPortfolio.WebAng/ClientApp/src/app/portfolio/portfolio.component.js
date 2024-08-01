@@ -89,25 +89,32 @@ var PortfolioComponent = function () {
         function PortfolioComponent_1(portfolioDataService, router) {
             this.portfolioDataService = portfolioDataService;
             this.router = router;
+            this.portfolios = [];
             this.portfolio = {};
             this.userLogin = {};
             this.userLogged = {};
-            this.showList = true;
+            this.showList = false;
             this.isAuthenticated = false;
         }
         PortfolioComponent_1.prototype.ngOnInit = function () {
             this.getUserData();
+            this.get();
         };
         PortfolioComponent_1.prototype.get = function () {
-            var _this = this;
-            return new Promise(function (resolve, reject) {
-                _this.portfolioDataService.get().subscribe(function (data) {
-                    _this.portfolios = data;
-                    _this.showList = true;
-                }, function (error) {
-                    console.log(error);
-                    alert('erro interno do sistema');
-                    reject();
+            return __awaiter(this, void 0, void 0, function () {
+                var _this = this;
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, new Promise(function (resolve, reject) {
+                            _this.portfolioDataService.get().subscribe(function (res) {
+                                console.log('Resposta do serviço:', res);
+                                console.log('Tipo de res:', Array.isArray(res) ? 'Array' : 'Objeto');
+                                _this.portfolios = Array.isArray(res) ? res : Object.values(res);
+                            }, function (error) {
+                                console.log(error);
+                                alert('erro interno do sistema');
+                                reject();
+                            });
+                        })];
                 });
             });
         };

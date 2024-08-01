@@ -11,12 +11,14 @@ namespace InvestmentPortfolio.Application.AutoMapper
             #region ViewModelToDomain
 
             CreateMap<UsuarioDto, Usuario>();
+            CreateMap<PortfolioDto, Portfolio>();
 
             #endregion
 
             #region DomainToViewModel
 
             CreateMap<Usuario, UsuarioDto>();
+            CreateMap<Portfolio, PortfolioDto>();
 
             #endregion
         } 

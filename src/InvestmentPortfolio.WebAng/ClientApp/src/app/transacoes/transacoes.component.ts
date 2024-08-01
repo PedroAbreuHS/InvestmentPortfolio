@@ -64,10 +64,10 @@ export class TransacoesComponent implements OnInit {
       this.getPortfolios();
   }
 
-  get() {
+  async get() {
     return new Promise((resolve, reject) => {
-      this.transacaoDataService.get().subscribe((data: any[]) => {
-        this.transacao = data;
+      this.transacaoDataService.get().subscribe(res => {
+        this.transacao = Array.isArray(res) ? res : Object.values(res);
         this.showList = true;
       }, error => {
         console.log(error);
@@ -155,8 +155,8 @@ export class TransacoesComponent implements OnInit {
   }
 
   getAtivos() {
-    this.ativoDataService.get().subscribe((data: any[]) => {      
-      this.ativos = data;
+    this.ativoDataService.get().subscribe(res => {      
+      this.ativos = Array.isArray(res) ? res : Object.values(res);
       }, error => {
         console.log(error);
         alert('erro interno do sistema');
@@ -164,11 +164,21 @@ export class TransacoesComponent implements OnInit {
   }
 
   getPortfolios() {
-    this.portfolioDataService.get().subscribe((data: any[]) => {
-        this.portfolios = data;
-    }, error => {
+    return new Promise((resolve, reject) => {
+      this.portfolioDataService.get().subscribe(res => {
+        // Verifique se res é um array
+        console.log('Resposta do serviço:', res);
+        console.log('Tipo de res:', Array.isArray(res) ? 'Array' : 'Objeto');
+
+        // Se res for um array, atribua diretamente
+        this.portfolios = Array.isArray(res) ? res : Object.values(res);
+
+        this.showList = true;
+      }, error => {
         console.log(error);
         alert('erro interno do sistema');
+        reject();
+      })
     });
   }
 }

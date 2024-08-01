@@ -5,6 +5,7 @@ namespace InvestmentPortfolio.Application.DTOs
 {
     public class PortfolioDto
     {
+        public Guid Id { get; set; }
         public required string Nome { get; set; } = null!;
 
         public required string Descricao { get; set; } = null!;

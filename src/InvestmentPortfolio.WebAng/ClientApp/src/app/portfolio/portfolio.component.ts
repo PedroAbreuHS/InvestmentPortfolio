@@ -10,25 +10,29 @@ import { Portfolio } from '../interfaces-types/portfolio';
 })
 export class PortfolioComponent implements OnInit {
 
-  portfolios: Array<Portfolio>;
+  portfolios: any[] = [];
   portfolio: any = {};
   userLogin: any = {};
   userLogged: any = {};
-  showList: boolean = true;
+  showList: boolean = false;
   isAuthenticated: boolean = false;
 
   constructor(private portfolioDataService: PortfolioDataService, private router: Router) {
   }
 
   ngOnInit() {
-    this.getUserData();    
+    this.getUserData();
+    this.get();
   }
 
-  get() {
+  async get() {
     return new Promise((resolve, reject) => {
-      this.portfolioDataService.get().subscribe((data: any[]) => {
-        this.portfolios = data;
-        this.showList = true;
+      this.portfolioDataService.get().subscribe(res => {
+        console.log('Resposta do serviço:', res);
+        console.log('Tipo de res:', Array.isArray(res) ? 'Array' : 'Objeto');
+
+        this.portfolios = Array.isArray(res) ? res : Object.values(res);
+
       }, error => {
         console.log(error);
         alert('erro interno do sistema');

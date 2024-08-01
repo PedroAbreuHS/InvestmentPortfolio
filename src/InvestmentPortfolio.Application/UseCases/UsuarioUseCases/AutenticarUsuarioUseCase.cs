@@ -2,13 +2,6 @@
 using InvestmentPortfolio.Application.DTOs;
 using InvestmentPortfolio.Domain.Entities;
 using InvestmentPortfolio.Domain.Repositories;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InvestmentPortfolio.Application.UseCases.UsuarioUseCases
 {

@@ -132,15 +132,19 @@ var TransacoesComponent = function () {
             this.getPortfolios();
         };
         TransacoesComponent_1.prototype.get = function () {
-            var _this = this;
-            return new Promise(function (resolve, reject) {
-                _this.transacaoDataService.get().subscribe(function (data) {
-                    _this.transacao = data;
-                    _this.showList = true;
-                }, function (error) {
-                    console.log(error);
-                    alert('erro interno do sistema');
-                    reject();
+            return __awaiter(this, void 0, void 0, function () {
+                var _this = this;
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, new Promise(function (resolve, reject) {
+                            _this.transacaoDataService.get().subscribe(function (res) {
+                                _this.transacao = Array.isArray(res) ? res : Object.values(res);
+                                _this.showList = true;
+                            }, function (error) {
+                                console.log(error);
+                                alert('erro interno do sistema');
+                                reject();
+                            });
+                        })];
                 });
             });
         };
@@ -230,8 +234,8 @@ var TransacoesComponent = function () {
         };
         TransacoesComponent_1.prototype.getAtivos = function () {
             var _this = this;
-            this.ativoDataService.get().subscribe(function (data) {
-                _this.ativos = data;
+            this.ativoDataService.get().subscribe(function (res) {
+                _this.ativos = Array.isArray(res) ? res : Object.values(res);
             }, function (error) {
                 console.log(error);
                 alert('erro interno do sistema');
@@ -239,11 +243,19 @@ var TransacoesComponent = function () {
         };
         TransacoesComponent_1.prototype.getPortfolios = function () {
             var _this = this;
-            this.portfolioDataService.get().subscribe(function (data) {
-                _this.portfolios = data;
-            }, function (error) {
-                console.log(error);
-                alert('erro interno do sistema');
+            return new Promise(function (resolve, reject) {
+                _this.portfolioDataService.get().subscribe(function (res) {
+                    // Verifique se res é um array
+                    console.log('Resposta do serviço:', res);
+                    console.log('Tipo de res:', Array.isArray(res) ? 'Array' : 'Objeto');
+                    // Se res for um array, atribua diretamente
+                    _this.portfolios = Array.isArray(res) ? res : Object.values(res);
+                    _this.showList = true;
+                }, function (error) {
+                    console.log(error);
+                    alert('erro interno do sistema');
+                    reject();
+                });
             });
         };
         return TransacoesComponent_1;

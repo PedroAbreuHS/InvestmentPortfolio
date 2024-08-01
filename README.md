@@ -47,7 +47,8 @@ ________________________________________________________________________________
 ## ⚙️ Levantamento de Requisitos e Critérios de Aceite:
 
 ### Funcionalidade Esperada
-A parte funcional deve-se gerenciar um usuário, ativo, transações e os portfólios.
+-Ter uma área logada 
+-Ter uma forma de solicitar o acesso.
 
 `Usuários:`
 - CRUD completo;

@@ -47,8 +47,7 @@ ________________________________________________________________________________
 ## ⚙️ Levantamento de Requisitos e Critérios de Aceite:
 
 ### Funcionalidade Esperada
--Ter uma área logada 
--Ter uma forma de solicitar o acesso.
+-Ter uma área logada e ter uma forma de solicitar o acesso.
 
 `Usuários:`
 - CRUD completo;
